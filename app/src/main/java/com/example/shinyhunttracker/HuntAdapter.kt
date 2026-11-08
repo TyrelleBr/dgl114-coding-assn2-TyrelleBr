@@ -46,4 +46,8 @@ class HuntAdapter(
         holder.bind(hunt)
     }
 
+    override fun getItemCount(): Int {
+        return hunts.size
+    }
+
 }
