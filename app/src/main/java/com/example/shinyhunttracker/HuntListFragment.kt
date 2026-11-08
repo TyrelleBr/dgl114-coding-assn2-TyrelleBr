@@ -11,7 +11,18 @@ import com.example.shinyhunttracker.models.Hunt
 
 class HuntListFragment : Fragment() {
 
-        private var _binding: FragmentHuntListBinding? = null
-        private val binding get() = _binding!!
+    private var _binding: FragmentHuntListBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentHuntListBinding.inflate(
+            inflater,
+            container,
+            false
+        )
 
 }
