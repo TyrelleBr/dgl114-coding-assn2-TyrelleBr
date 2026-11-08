@@ -25,6 +25,17 @@ class HuntAdapter(
             }
         }
 
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): HuntViewHolder {
+            val binding = ItemHuntBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        }
+
     }
 
 
