@@ -36,6 +36,14 @@ class HuntAdapter(
             )
         }
 
+        override fun onBindViewHolder(
+            holder: HuntViewHolder,
+            position: Int
+        ) {
+            val hunt = hunts[position]
+            holder.bind(hunt)
+        }
+
     }
 
 
