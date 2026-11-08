@@ -19,6 +19,10 @@ class HuntAdapter(
             binding.pokemonName.text = hunt.pokemonName
             binding.pokemonGameName.text = hunt.pokemonGameName
             binding.numOfEncounters.text = "Encounters: ${hunt.numOfEncounters}"
+
+            binding.root.setOnClickListener {
+                onHuntClick(hunt)
+            }
         }
 
     }
