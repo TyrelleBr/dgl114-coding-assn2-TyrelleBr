@@ -25,4 +25,7 @@ class HuntListFragment : Fragment() {
             false
         )
 
+        return binding.root
+    }
+
 }
