@@ -2,6 +2,6 @@ package com.example.shinyhunttracker.models
 
 class Hunt (
     val pokemonName: String,
-    val game: String,
-    var encounters: Int = 0
+    val pokemonGameName: String,
+    var numOfEncounters: Int = 0
 )

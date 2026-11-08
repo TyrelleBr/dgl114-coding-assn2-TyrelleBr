@@ -11,4 +11,17 @@ class HuntAdapter(
     private val onHuntClick: (Hunt) -> Unit
 ) : RecyclerView.Adapter<HuntAdapter.HuntViewHolder>() {
 
+    inner class HuntViewHolder(
+        private val binding: ItemHuntBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(hunt: Hunt) {
+            binding.pokemonName.text = hunt.pokemonName
+            binding.pokemonGameName.text = hunt.pokemonGameName
+            binding.numOfEncounters.text = "Encounters: ${hunt.numOfEncounters}"
+        }
+
+    }
+
+
 }
