@@ -60,8 +60,8 @@
         android:layout_height="24dp"
         android:src="@android:drawable/ic_media_play"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokemonName"
-        app:layout_constraintBottom_toTopOf="@id/numOfEncounters"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
 
         />
 
