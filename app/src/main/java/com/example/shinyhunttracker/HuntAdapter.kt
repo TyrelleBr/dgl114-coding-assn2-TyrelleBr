@@ -24,27 +24,26 @@ class HuntAdapter(
                 onHuntClick(hunt)
             }
         }
-
-        override fun onCreateViewHolder(
-            parent: ViewGroup,
-            viewType: Int
-        ): HuntViewHolder {
-            val binding = ItemHuntBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        }
-
-        override fun onBindViewHolder(
-            holder: HuntViewHolder,
-            position: Int
-        ) {
-            val hunt = hunts[position]
-            holder.bind(hunt)
-        }
-
     }
 
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): HuntViewHolder {
+        val binding = ItemHuntBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return HuntViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(
+        holder: HuntViewHolder,
+        position: Int
+    ) {
+        val hunt = hunts[position]
+        holder.bind(hunt)
+    }
 
 }
