@@ -41,6 +41,7 @@ import kotlin.dec
 import androidx.compose.ui.unit.dp
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.ButtonColors
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.FragmentActivity
@@ -210,6 +211,10 @@ fun EncounterCounterScreen(
         ) { innerPadding ->
 
             Button(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .padding(start = 5.dp)
+                ,
                 onClick = {
                     (context as? Activity)?.finish()
                 },
@@ -220,7 +225,11 @@ fun EncounterCounterScreen(
                     bottomEnd = 15.dp
                 )
             ) {
-                Text("Back to dashboard")
+
+                Text(
+                    fontSize = 15.sp,
+                    text = "< Back"
+                )
             }
             Column(
                 modifier = Modifier.fillMaxSize().padding(innerPadding),
