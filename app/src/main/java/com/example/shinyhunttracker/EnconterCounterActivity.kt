@@ -16,7 +16,13 @@ class EncounterCounterActivity : ComponentActivity() {
 
         setContent {
             ShinyHuntTrackerTheme {
-                EncounterCounterScreen()
+                EncounterCounterScreen(
+                    pokemonName = pokemonName,
+                    pokemonGameName = pokemonGameName,
+                    numOfEncounters = numOfEncounters
+
+
+                )
             }
         }
     }
