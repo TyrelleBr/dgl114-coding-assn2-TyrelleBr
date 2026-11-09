@@ -10,9 +10,9 @@ class EncounterCounterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val pokemonName = intent.getStringExtra("pokemonName")
-        val pokemonGameName = intent.getStringExtra("pokemonGameName")
-        val numOfEncounters = intent.getStringExtra("numOfEncounters") ?: 0
+        val pokemonName = intent.getStringExtra("pokemonName") ?: "Pokemon Name"
+        val pokemonGameName = intent.getStringExtra("pokemonGameName") ?: "Pokemon Game Name"
+        val numOfEncounters = intent.getIntExtra("numOfEncounters", 0)
 
         setContent {
             ShinyHuntTrackerTheme {
