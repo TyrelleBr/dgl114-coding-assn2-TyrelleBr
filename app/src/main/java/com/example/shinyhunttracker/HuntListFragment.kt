@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shinyhunttracker.databinding.FragmentHuntListBinding
 import com.example.shinyhunttracker.models.Hunt
+import android.content.Intent
 
 class HuntListFragment : Fragment() {
 
@@ -28,7 +29,15 @@ class HuntListFragment : Fragment() {
         binding.huntRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         binding.huntRecyclerView.adapter = HuntAdapter(hunts) { hunt ->
-            // todo: will open encounter counter page later
+
+            val intent = Intent(requireContext(), EncounterCounterActivity::class.java)
+
+            intent.putExtra("pokemonName", hunt.pokemonName)
+            intent.putExtra("pokemonGameName", hunt.pokemonGameName)
+            intent.putExtra("numOfEncounters", hunt.numOfEncounters)
+
+            startActivity(intent)
+
         }
 
         return binding.root
