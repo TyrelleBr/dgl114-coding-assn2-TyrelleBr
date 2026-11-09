@@ -121,7 +121,15 @@ fun CounterButtonMinus(onMinusClick: () -> Unit) {
 
 
 @Composable
-fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName: String = "Pokemon Game Name", numOfEncounters: Int = 0) {
+fun EncounterCounterScreen(
+    pokemonName: String = "Pokemon Name",
+    pokemonGameName: String = "Pokemon Game Name",
+    numOfEncounters: Int = 0
+) {
+
+    var encounters by rememberSaveable(pokemonName) {
+        mutableIntStateOf(numOfEncounters)
+    }
 
     val configuration = LocalConfiguration.current
 
@@ -167,7 +175,7 @@ fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName
 
                     ) {
                     Text(
-                        text = numOfEncounters.toString(),
+                        text = encounters.toString(),
                         color = Color(0xFFEAF2FF),
                         fontSize = 50.sp
                     )
@@ -176,13 +184,13 @@ fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName
                     ) {
 
                         CounterButtonMinus(fun() {
-                            if (numOfEncounters > 0) {
-                                numOfEncounters--
+                            if (encounters > 0) {
+                                encounters--
                             }
                         })
 
                         CounterButtonPlus(fun() {
-                            numOfEncounters++
+                            encounters++
                         })
                     }
                 }
@@ -212,8 +220,8 @@ fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName
                         modifier = Modifier.size(160.dp),
                         contentScale = ContentScale.Fit
                     )
-                    CurrentPokemonName("Cubone")
-                    PokemonGameName("Pokemon Fire Red")
+                    CurrentPokemonName(pokemonName)
+                    PokemonGameName(pokemonGameName)
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 Column(
@@ -230,7 +238,7 @@ fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName
 
                     ) {
                     Text(
-                        text = numOfEncounters.toString(),
+                        text = encounters.toString(),
                         color = Color(0xFFEAF2FF),
                         fontSize = 50.sp
                     )
@@ -239,13 +247,13 @@ fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName
                     ) {
 
                         CounterButtonMinus(fun() {
-                            if (numOfEncounters > 0) {
-                                numOfEncounters--
+                            if (encounters > 0) {
+                                encounters--
                             }
                         })
 
                         CounterButtonPlus(fun() {
-                            numOfEncounters++
+                            encounters++
                         })
                     }
                 }
