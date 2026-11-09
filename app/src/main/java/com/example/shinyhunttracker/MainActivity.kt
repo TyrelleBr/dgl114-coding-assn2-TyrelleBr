@@ -121,11 +121,7 @@ fun CounterButtonMinus(onMinusClick: () -> Unit) {
 
 
 @Composable
-fun EncounterCounterScreen() {
-
-    var encounters by rememberSaveable() {
-        mutableIntStateOf(0)
-    }
+fun EncounterCounterScreen(pokemonName: String = "Pokemon Name", pokemonGameName: String = "Pokemon Game Name", numOfEncounters: Int = 0) {
 
     val configuration = LocalConfiguration.current
 
@@ -154,8 +150,8 @@ fun EncounterCounterScreen() {
                         modifier = Modifier.size(160.dp),
                         contentScale = ContentScale.Fit
                     )
-                    CurrentPokemonName("Cubone")
-                    PokemonGameName("Pokemon Fire Red")
+                    CurrentPokemonName(pokemonName)
+                    PokemonGameName(pokemonGameName)
                 }
                 Column(
                     modifier = Modifier
@@ -171,7 +167,7 @@ fun EncounterCounterScreen() {
 
                     ) {
                     Text(
-                        text = encounters.toString(),
+                        text = numOfEncounters.toString(),
                         color = Color(0xFFEAF2FF),
                         fontSize = 50.sp
                     )
@@ -180,13 +176,13 @@ fun EncounterCounterScreen() {
                     ) {
 
                         CounterButtonMinus(fun() {
-                            if (encounters > 0) {
-                                encounters--
+                            if (numOfEncounters > 0) {
+                                numOfEncounters--
                             }
                         })
 
                         CounterButtonPlus(fun() {
-                            encounters++
+                            numOfEncounters++
                         })
                     }
                 }
@@ -234,7 +230,7 @@ fun EncounterCounterScreen() {
 
                     ) {
                     Text(
-                        text = encounters.toString(),
+                        text = numOfEncounters.toString(),
                         color = Color(0xFFEAF2FF),
                         fontSize = 50.sp
                     )
@@ -243,13 +239,13 @@ fun EncounterCounterScreen() {
                     ) {
 
                         CounterButtonMinus(fun() {
-                            if (encounters > 0) {
-                                encounters--
+                            if (numOfEncounters > 0) {
+                                numOfEncounters--
                             }
                         })
 
                         CounterButtonPlus(fun() {
-                            encounters++
+                            numOfEncounters++
                         })
                     }
                 }
