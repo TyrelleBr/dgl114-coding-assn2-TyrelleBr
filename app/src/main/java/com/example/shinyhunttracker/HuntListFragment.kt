@@ -27,6 +27,10 @@ class HuntListFragment : Fragment() {
 
         binding.huntRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        binding.huntRecyclerView.adapter = HuntAdapter(hunts) { hunt ->
+            // todo: will open encounter counter page later
+        }
+
         return binding.root
     }
 
