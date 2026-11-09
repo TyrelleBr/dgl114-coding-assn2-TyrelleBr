@@ -25,6 +25,8 @@ class HuntListFragment : Fragment() {
             false
         )
 
+        binding.huntRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         return binding.root
     }
 
