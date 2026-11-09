@@ -33,4 +33,10 @@ class HuntListFragment : Fragment() {
         _binding = null
     }
 
+    private val hunts = listOf(
+        Hunt("Cubone", "Pokemon Fire Red", 0),
+        Hunt("Rayquaza", "Pokemon Emerald", 100),
+        Hunt("Shinx", "Pokemon Platinum", 4000)
+    )
+
 }
