@@ -146,6 +146,27 @@ fun EncounterCounterScreen(
             modifier = Modifier.fillMaxSize(),
             containerColor = Color(0xFF0B1120)
         ) { innerPadding ->
+            Button(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .padding(start = 5.dp)
+                ,
+                onClick = {
+                    (context as? Activity)?.finish()
+                },
+                shape = RoundedCornerShape(
+                    topStart = 15.dp,
+                    bottomStart = 15.dp,
+                    topEnd = 15.dp,
+                    bottomEnd = 15.dp
+                )
+            ) {
+
+                Text(
+                    fontSize = 15.sp,
+                    text = "< Back"
+                )
+            }
             Row(
                 modifier = Modifier
                     .fillMaxSize()
