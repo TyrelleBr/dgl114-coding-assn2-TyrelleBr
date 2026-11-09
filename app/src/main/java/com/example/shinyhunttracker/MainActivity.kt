@@ -1,5 +1,6 @@
 package com.example.shinyhunttracker
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -41,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.FragmentActivity
 
 class MainActivity : FragmentActivity() {
@@ -133,6 +135,8 @@ fun EncounterCounterScreen(
 
     val configuration = LocalConfiguration.current
 
+    val context = LocalContext.current
+
     var isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     if (isLandscape) {
@@ -204,11 +208,27 @@ fun EncounterCounterScreen(
             modifier = Modifier.fillMaxSize(),
             containerColor = Color(0xFF0B1120)
         ) { innerPadding ->
+
+            Button(
+                onClick = {
+                    (context as? Activity)?.finish()
+                },
+                shape = RoundedCornerShape(
+                    topStart = 15.dp,
+                    bottomStart = 15.dp,
+                    topEnd = 15.dp,
+                    bottomEnd = 15.dp
+                )
+            ) {
+                Text("Back to dashboard")
+            }
             Column(
                 modifier = Modifier.fillMaxSize().padding(innerPadding),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+
                 ShinyHuntTrackerTitle()
                 Column(
 
